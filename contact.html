@@ -4,49 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="stylesheets/contact.css" />
   </head>
-  <body></body>
-</html>
-<section id="contact">
-  <h3 class="contact-heading">Let's get in touch</h3>
-  <div class="contact-box">
-    <div class="contact-container">
-      <div>
-        <h4>Address:</h4>
-        <p class="details">Shehezen, China</p>
-        <h4>Phone:</h4>
-        <p class="details">0659291806</p>
-        <h4>Email:</h4>
-        <p class="details">i.sage0007@gmail.com</p>
+  <body>
+    <nav>
+      <ul class="menu">
+        <li><a href="./home.html" class="navbar-link">Home</a></li>
+        <li>
+          <a href="./products.html" class="navbar-link">Gaming Devices</a>
+        </li>
+        <li>
+          <a href="./products.html" class="navbar-link">Register/Login</a>
+        </li>
+        <li><a href="./about.html" class="navbar-link">About us</a></li>
+        <li><a href="./contact.html" class="navbar-link">Contact</a></li>
+      </ul>
+      <button class="nav" onclick="toggleNav()">Menu</button>
+    </nav>
+    <section id="contact">
+      <h3 class="contact-heading">Let's get in touch</h3>
+      <div class="contact-box">
+        <div class="contact-container">
+          <div>
+            <h4>Address:</h4>
+            <p class="details">Shehezen, China</p>
+            <h4>Phone:</h4>
+            <p class="details">0659291806</p>
+            <h4>Email:</h4>
+            <p class="details">i.sage0007@gmail.com</p>
+          </div>
+        </div>
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/mgerayjv"
+          method="POST"
+        >
+          <input
+            class="contact-input"
+            type="text"
+            name="full_name"
+            placeholder="Name"
+            required
+          />
+          <input
+            class="contact-input"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <textarea
+            class="contact-input message"
+            name="message"
+            placeholder="Type your message here"
+          ></textarea>
+          <button class="btn" type="submit">Send</button>
+        </form>
       </div>
-    </div>
-    <form
-      id="contact-form"
-      action="https://formspree.io/f/mgerayjv"
-      method="POST"
-    >
-      <input
-        class="contact-input"
-        type="text"
-        name="full_name"
-        placeholder="Name"
-        required
-      />
-      <input
-        class="contact-input"
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-      />
-      <textarea
-        class="contact-input message"
-        name="message"
-        placeholder="Type your message here"
-      ></textarea>
-      <button class="btn" type="submit">Send</button>
-    </form>
-  </div>
-</section>
-<div class="footer">©2021 Ikraam Sage. All Rights Reserved</div>
+    </section>
+    <div class="footer">©2021 Ikraam Sage. All Rights Reserved</div>
+  </body>
+</html>
