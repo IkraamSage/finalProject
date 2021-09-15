@@ -1,34 +1,33 @@
-fetch("https://sage-automation.herokuapp.com/")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-  });
-
 function login() {
-  let email = document.querySelectorAll("#email").value;
-  let password = document.querySelectorAll("#password").value;
-  console.log(email, password);
+  let user = document.querySelector("#username").value;
+  let userpassword = document.querySelector("#password").value;
+  let userValues = { username: user, password: userpassword };
 
-  fetch("https://sage-automation.herokuapp.com/users/", {
-    method: "PATCH",
-    body: JSON.stringify({
-      email,
-      password,
-    }),
+  console.log(userValues);
+
+  fetch("https://sage-automation.herokuapp.com/user_login/", {
+    method: "POST",
+    body: JSON.stringify(userValues),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
   })
     .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      if (!res.data) {
-        document.querySelector("#error").innerHTML =
-          "No user found with those credentials";
-        return;
-      } else {
-        localStorage.setItem("user", JSON.stringify(res.data));
-        window.location = "./index.html";
-      }
+    .then((data) => {
+      console.log(data);
     });
 }
+
+let signInButton = document.querySelector(".signInButton");
+
+// switch between register and sign in
+let switchButtons = document.querySelectorAll(".switchButton");
+let signInForm = document.querySelector(".signIn");
+let registerForm = document.querySelector(".register");
+
+switchButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    signInForm.classList.toggle("active");
+    registerForm.classList.toggle("active");
+  });
+});
